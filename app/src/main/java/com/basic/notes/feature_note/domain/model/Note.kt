@@ -1,6 +1,7 @@
 package com.basic.notes.feature_note.domain.model
 
 
+import android.os.Message
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.basic.notes.ui.theme.Blue
@@ -15,8 +16,11 @@ data class Note(
     val content: String,
     val timestamp: Long,
     val color: Int
-){
+) {
     companion object {
-        val noteColors = listOf(White,Blue, Yellow, Red)
+        val noteColors = listOf(White, Blue, Yellow, Red)
     }
 }
+
+
+class InvalidNoteException(message: String) : Exception(message)
