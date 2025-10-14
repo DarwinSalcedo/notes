@@ -8,4 +8,8 @@ import com.basic.notes.feature_note.domain.model.Note
 abstract class NoteDatabase : RoomDatabase() {
 
     abstract val dao: NoteLocalDataSource
+
+    companion object{
+        const val NAME_DB = "note_db"
+    }
 }
