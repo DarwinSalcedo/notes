@@ -80,5 +80,7 @@ dependencies {
     // Kotlin Extensions and Coroutines support (recommended)
     implementation("androidx.room:room-ktx:2.8.2")
 
-    implementation(libs.truth.assetions)
+    testImplementation(libs.truth.assetions)
+
+    testImplementation("io.mockk:mockk:1.14.6")
 }
