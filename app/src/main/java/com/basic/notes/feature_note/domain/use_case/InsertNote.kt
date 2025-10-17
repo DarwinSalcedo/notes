@@ -10,6 +10,7 @@ class InsertNote(private val repository: NoteRepository) {
         if (note == null ) return Result.failure(InvalidNoteException("Must be not null"))
         if (note.title.isBlank()) return Result.failure(InvalidNoteException("not Title"))
         if (note.content.isBlank()) return Result.failure(InvalidNoteException("not Content"))
+        println("NOTE INSERTED "+ note.toString())
         repository.insert(note)
        return Result.success(Unit)
     }

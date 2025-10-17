@@ -37,6 +37,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.basic.notes.feature_note.presentation.note.components.NoteItem
 import com.basic.notes.feature_note.presentation.note.components.OrderSection
+import com.basic.notes.feature_note.presentation.util.Screen
 import kotlinx.coroutines.launch
 
 @Composable
@@ -56,7 +57,7 @@ fun NoteScreen(navController: NavController, viewModel: NotesViewModel = hiltVie
         snackbarHost = { SnackbarHost(snackBarHostState) },
         floatingActionButton = {
             FloatingActionButton(onClick = {
-                // viewModel.onEvent(AddEditScreenEvent.OnSaveNoteClick)
+                navController.navigate(route = Screen.AddEdit.route)
             }) {
                 Icon(imageVector = Icons.Default.Add, contentDescription = "Add")
             }
@@ -100,7 +101,7 @@ fun NoteScreen(navController: NavController, viewModel: NotesViewModel = hiltVie
                         note = note,
                         modifier = Modifier
                             .fillMaxWidth()
-                            .clickable {},
+                            .clickable { navController.navigate(Screen.AddEdit.route + "?noteId=${note.id}" + "?noteColor=${note.color}") },
                         onDeleteClick = {
                             viewModel.onEvent(NoteEvent.DeleteNote(note))
                             scope.launch {
@@ -111,6 +112,7 @@ fun NoteScreen(navController: NavController, viewModel: NotesViewModel = hiltVie
                             }
                         }
                     )
+                    Spacer(Modifier.height(8.dp))
 
                 }
             }

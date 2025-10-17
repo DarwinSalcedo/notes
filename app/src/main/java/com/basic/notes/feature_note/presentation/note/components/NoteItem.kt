@@ -30,7 +30,6 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.core.graphics.ColorUtils
 import com.basic.notes.feature_note.domain.model.Note
-import com.basic.notes.ui.theme.White
 
 val noteDummie = Note(
     1,
@@ -44,8 +43,8 @@ val noteDummie = Note(
 fun NoteItem(
     note: Note,
     modifier: Modifier = Modifier
-        .wrapContentSize()
-        .background(White),
+        .background(Color.Yellow)
+        .wrapContentSize(),
     cornerRadius: Dp = 10.dp,
     cutCornerSize: Dp = 30.dp,
     onDeleteClick: () -> Unit = {}
@@ -74,8 +73,8 @@ fun NoteItem(
                             note.color, 0x000000, 0.2f
                         )
                     ),
-                    topLeft = Offset(size.width - cutCornerSize.toPx(), 100f),
-                    size = Size(cutCornerSize.toPx() + 100f, cutCornerSize.toPx() + 100f),
+                    topLeft = Offset(size.width - cutCornerSize.toPx(), -5f),
+                    size = Size(cutCornerSize.toPx() + 15f, cutCornerSize.toPx() + 15f),
                     cornerRadius = CornerRadius(cornerRadius.toPx())
                 )
 
@@ -92,7 +91,7 @@ fun NoteItem(
             Text(
                 text = note.title,
                 style = MaterialTheme.typography.titleLarge,
-                color = MaterialTheme.colorScheme.surface,
+                color = MaterialTheme.colorScheme.primary,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis
             )
@@ -102,7 +101,7 @@ fun NoteItem(
             Text(
                 text = note.content,
                 style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.surface,
+                color = MaterialTheme.colorScheme.primary,
                 maxLines = 10,
                 overflow = TextOverflow.Ellipsis
             )
@@ -119,10 +118,4 @@ fun NoteItem(
         }
     }
 
-}
-
-@Preview
-@Composable
-private fun prevNoteItem() {
-    NoteItem(noteDummie)
 }

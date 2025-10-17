@@ -1,7 +1,6 @@
 package com.basic.notes.feature_note.domain.model
 
 
-import android.os.Message
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.basic.notes.ui.theme.Blue
@@ -11,7 +10,7 @@ import com.basic.notes.ui.theme.Yellow
 
 @Entity
 data class Note(
-    @PrimaryKey val id: Int?,
+    @PrimaryKey val id: Int? = null,
     val title: String,
     val content: String,
     val timestamp: Long,
