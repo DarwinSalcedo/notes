@@ -1,7 +1,7 @@
 package com.basic.notes.feature_note.data.repository
 
 import com.basic.notes.feature_note.data.data_source.NoteLocalDataSource
-import com.basic.notes.feature_note.domain.model.Note
+import com.basic.notes.feature_note.domain.entity.Note
 import com.basic.notes.feature_note.domain.repository.NoteRepository
 import kotlinx.coroutines.flow.Flow
 

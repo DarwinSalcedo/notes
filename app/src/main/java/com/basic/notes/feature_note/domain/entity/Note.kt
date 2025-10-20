@@ -1,4 +1,4 @@
-package com.basic.notes.feature_note.domain.model
+package com.basic.notes.feature_note.domain.entity
 
 
 import androidx.room.Entity

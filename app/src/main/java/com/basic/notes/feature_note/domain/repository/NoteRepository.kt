@@ -1,6 +1,6 @@
 package com.basic.notes.feature_note.domain.repository
 
-import com.basic.notes.feature_note.domain.model.Note
+import com.basic.notes.feature_note.domain.entity.Note
 import kotlinx.coroutines.flow.Flow
 
 interface NoteRepository {
