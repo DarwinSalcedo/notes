@@ -32,13 +32,16 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.basic.notes.feature_note.presentation.note.components.NoteItem
 import com.basic.notes.feature_note.presentation.note.components.OrderSection
 import com.basic.notes.feature_note.presentation.util.Screen
+import com.basic.notes.feature_note.presentation.util.TestTagCompose.Companion.ORDER_SECTION
 import kotlinx.coroutines.launch
+
 
 @Composable
 fun NoteScreen(navController: NavController, viewModel: NotesViewModel = hiltViewModel()) {
@@ -88,7 +91,8 @@ fun NoteScreen(navController: NavController, viewModel: NotesViewModel = hiltVie
                 OrderSection(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(16.dp),
+                        .padding(16.dp).
+                        testTag(ORDER_SECTION),
                     noteOrder = state.noteOrder,
                     onOrderChange = {
                         viewModel.onEvent(NoteEvent.Order(it))

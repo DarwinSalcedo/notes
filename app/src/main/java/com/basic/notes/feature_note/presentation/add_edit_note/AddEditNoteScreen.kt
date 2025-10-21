@@ -33,11 +33,13 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.basic.notes.feature_note.domain.entity.Note
 import com.basic.notes.feature_note.presentation.add_edit_note.components.TransparentHintTextField
+import com.basic.notes.feature_note.presentation.util.TestTagCompose
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
@@ -111,6 +113,7 @@ fun AddEditNoteScreen(
                                 color = if (viewModel.noteColor.value == colorInt) Color.Black else Color.Transparent,
                                 shape = CircleShape
                             )
+                            .testTag(it.toString())
                             .clickable {
                                 scope.launch {
                                     colorBackgroundAnimatable.animateTo(
@@ -139,7 +142,8 @@ fun AddEditNoteScreen(
                 },
                 isHintVisible = titleState.isHintVisible,
                 singleLine = true,
-                textStyle = MaterialTheme.typography.headlineLarge
+                textStyle = MaterialTheme.typography.headlineLarge,
+                testTag = TestTagCompose.TITLE
             )
 
             Spacer(Modifier.height(16.dp))
@@ -159,7 +163,8 @@ fun AddEditNoteScreen(
                 isHintVisible = contentState.isHintVisible,
                 singleLine = false,
                 textStyle = MaterialTheme.typography.bodyMedium,
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth(),
+                testTag = TestTagCompose.CONTENT
             )
         }
 
