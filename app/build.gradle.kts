@@ -88,6 +88,7 @@ dependencies {
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.5.1")
     testImplementation("com.google.truth:truth:1.1.3")
     testImplementation("io.mockk:mockk:1.14.6")
+    testImplementation("app.cash.turbine:turbine:1.0.0")
 
     // Instrumentation tests
     androidTestImplementation(libs.androidx.junit)
